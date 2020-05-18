@@ -30,10 +30,9 @@ function getInfo() {
     }).catch(e => {
 
         // EN CASO DE ERROR EN LA PETICIÓN
+        updateInfoError()
 
-        campo0.innerText = `No se ha podido obtener información sobre la localidad solicitada`;
-
-    })
+    });
 }
 
 function updateInfo(data) {
@@ -94,6 +93,21 @@ function updateInfo(data) {
     icono.src = `http://openweathermap.org/img/w/${iconoCielo}.png`;
     icono.style.display = "inline-block"
 
+
+}
+
+function updateInfoError() {
+
+    campo0.innerText = `No se ha podido obtener información sobre la localidad solicitada`;
+    campo1.innerText = '';
+    campo2.innerText = '';
+    campo3.innerText = '';
+    campo4.innerText = '';
+    campo5.innerText = '';
+    campo6.innerText = '';
+    campo7.innerText = '';
+    campo8.innerText = '';
+    icono.style.display = "none"
 
 }
 
