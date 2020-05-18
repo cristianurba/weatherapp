@@ -13,7 +13,7 @@ let campo7 = document.getElementById('campo7');
 let campo8 = document.getElementById('campo8');
 
 let apiKey = 'a83c3860118257a27759290cedd6fae9';
-let url = `http://api.openweathermap.org/data/2.5/weather?&appid=${apiKey}&units=metric&q=`;
+let url = `https://api.openweathermap.org/data/2.5/weather?&appid=${apiKey}&units=metric&q=`;
 
 
 // FUNCIÓN PARA LA PETICIÓN A LA API
@@ -30,10 +30,9 @@ function getInfo() {
     }).catch(e => {
 
         // EN CASO DE ERROR EN LA PETICIÓN
+        updateInfoError()
 
-        campo0.innerText = `No se ha podido obtener información sobre la localidad solicitada`;
-
-    })
+    });
 }
 
 function updateInfo(data) {
@@ -94,6 +93,21 @@ function updateInfo(data) {
     icono.src = `http://openweathermap.org/img/w/${iconoCielo}.png`;
     icono.style.display = "inline-block"
 
+
+}
+
+function updateInfoError() {
+
+    campo0.innerText = `No se ha podido obtener información sobre la localidad solicitada`;
+    campo1.innerText = '';
+    campo2.innerText = '';
+    campo3.innerText = '';
+    campo4.innerText = '';
+    campo5.innerText = '';
+    campo6.innerText = '';
+    campo7.innerText = '';
+    campo8.innerText = '';
+    icono.style.display = "none"
 
 }
 
